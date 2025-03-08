@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { ProductGrid, TopMenu } from "@/components";
+
 interface Props {
   params : {
     slug : string
@@ -20,12 +21,12 @@ async function getProducts(category:string) {
 }
 
 export default async function OrderPage({params} : Props) {
-  const {slug} = params
-  const products = await getProducts(slug)
-  
-  if(!products){
+  const products = await getProducts(params.slug)
+
+  if(products.length === 0){
     notFound()
   }
+
   return (
     <>
       <TopMenu />

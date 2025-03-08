@@ -9,7 +9,9 @@ interface Props {
 
 export function ProductGridItem({products} : Props) {
   return (
-    <div className="border bg-white mx-3 h-full">
+    <div 
+      className="border bg-white mx-3 h-full"
+    >
 
       <Image
         width={300}
