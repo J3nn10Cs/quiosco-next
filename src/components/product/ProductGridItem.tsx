@@ -1,7 +1,7 @@
+import { AddProductButton } from "@/components/cart/AddProductButton"
 import { titleFont } from "@/config/fonts"
+import { formatCurrency } from "@/helpers/currency"
 import { Product } from "@prisma/client"
-import Image from "next/image"
-import Link from "next/link"
 
 interface Props {
   products : Product
@@ -10,26 +10,20 @@ interface Props {
 export function ProductGridItem({products} : Props) {
   return (
     <div 
-      className="border bg-white mx-3 h-full"
+      className="animate__animated animate__fadeIn border bg-white p-2 rounded-md mx-3 h-full"
     >
-
-      <Image
-        width={300}
-        height={300}
-        className="w-full bg-cover"
-        src={`/products/${products.image}.jpg`}
+      <img 
+        src={`/products/${products.image}.jpg`} 
         alt={`Imagen de ${products.name}`}
+        className="w-full bg-cover rounded-sm"
       />
 
       <div className="p-5">
         <h3 className={`${titleFont.className} font-bold text-lg`}>{products.name}</h3>
-        <h2 className={`${titleFont.className} font-extrabold text-yellow-500 my-3 text-lg`} >{products.price}</h2>
-        <button
-          type="button"
-          className="bg-indigo-500 hover:bg-indigo-800 text-white font-bold py-2 w-full rounded"
-        >
-          Agregar al pedido
-        </button>
+        <h2 className={`${titleFont.className} font-extrabold text-yellow-500 my-2 text-lg`} >{formatCurrency(products.price)}</h2>
+        <AddProductButton
+          product={products}
+        />
       </div>
     </div>
   )

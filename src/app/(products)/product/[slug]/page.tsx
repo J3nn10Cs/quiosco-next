@@ -20,7 +20,7 @@ async function getProducts(category:string) {
   return products
 }
 
-export default async function OrderPage({params} : Props) {
+export default async function ProductPage({params} : Props) {
   const products = await getProducts(params.slug)
 
   if(products.length === 0){
@@ -29,7 +29,6 @@ export default async function OrderPage({params} : Props) {
 
   return (
     <>
-      <TopMenu />
       <ProductGrid
         products={products}
       />
