@@ -8,6 +8,7 @@ interface Store {
   incrementQuantity : (id : Product['id']) => void
   decrementQuantity : (id : Product['id']) => void
   deleteOrder : (id : Product['id']) => void
+  clearOrder : () => void
 }
 
 //set: Función para actualizar el estado
@@ -63,6 +64,11 @@ export const useStore = create<Store>((set, get) => ({
   deleteOrder : (id) => {
     set((state) => ({
       order : state.order.filter(item => item.id !== id)
+    }))
+  },
+  clearOrder : () => {
+    set(() => ({
+      order : []
     }))
   }
 }))

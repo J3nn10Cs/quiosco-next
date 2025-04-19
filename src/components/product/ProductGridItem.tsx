@@ -18,8 +18,8 @@ export function ProductGridItem({products} : Props) {
         className="w-full bg-cover rounded-sm"
       />
 
-      <div className="p-5">
-        <h3 className={`${titleFont.className} font-bold text-lg`}>{products.name}</h3>
+      <div className="p-2">
+        <h3 className={`${titleFont.className} font-bold`}>{products.name}</h3>
         <h2 className={`${titleFont.className} font-extrabold text-yellow-500 my-2 text-lg`} >{formatCurrency(products.price)}</h2>
         <AddProductButton
           product={products}

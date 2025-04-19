@@ -15,7 +15,7 @@ export const AddProductButton = ({product} : Props) => {
     <>
       <button
           type="button"
-          className="animate__animated animate__fadeIn bg-indigo-500 hover:bg-indigo-800 text-white font-bold py-2 w-full rounded-3xl"
+          className="animate__animated animate__fadeIn transition-all duration-200 bg-indigo-500 hover:bg-indigo-800 text-white font-bold py-2 w-full rounded-3xl"
           onClick={() => addtoOrder(product)}
         >
           Agregar al pedido

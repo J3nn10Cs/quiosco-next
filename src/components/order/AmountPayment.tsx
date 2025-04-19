@@ -1,9 +1,11 @@
 import { createOrder } from '@/actions/create-order-action'
 import { formatCurrency } from '@/helpers/currency'
 import { OrderSchema } from '@/schema'
+import { useStore } from '@/store'
 import { OrderItem } from '@/types'
 import React from 'react'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 interface Props {
   total: number,
@@ -11,6 +13,8 @@ interface Props {
 }
 
 export const AmountPayment = ({total, order} : Props) => {
+  const router = useRouter();
+  const clearOrder = useStore(state => state.clearOrder);
 
   const handleCreateOrder = async (formData : FormData) => {
     //almacenamos el nombre del cliente, la orden en un objeto y el total
@@ -37,6 +41,12 @@ export const AmountPayment = ({total, order} : Props) => {
         toast.error(issue.message)
       })
     }
+
+    toast.success('Preparando pedido')
+    //limpiamos el pedido
+    clearOrder()
+    //redireccionamos a la pagina de inicio - o detalle del pedido
+    router.push('/');
   }
 
   return (
@@ -47,7 +57,10 @@ export const AmountPayment = ({total, order} : Props) => {
         {order.map(item => (
           <div key={item.id} className='flex justify-between items-center mt-4'>
             <p className='text-lg font-semibold'>{item.name}</p>
-            <p className='text-lg font-semibold'>{formatCurrency(item.price * item.quantity)}</p>
+            <div className='flex gap-2 items-center'>
+              <p className='text-lg font-semibold'>{`(${item.quantity})`} x</p>
+              <p className='text-lg font-semibold'>{formatCurrency(item.price * item.quantity)}</p>
+            </div>
           </div>
         ))}
         
@@ -56,7 +69,6 @@ export const AmountPayment = ({total, order} : Props) => {
           <p className='text-xl font-bold text-green-600'>{formatCurrency(total)}</p>
         </div>
         <form action={handleCreateOrder}>
-
           <input 
             type="text"
             className='border border-gray-300 rounded-3xl p-2 mt-5 w-full'

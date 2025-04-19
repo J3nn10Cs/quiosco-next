@@ -23,7 +23,7 @@ export function CategoryIcon({category} : Props) {
         <img 
           src={`/icon_${category.slug}.svg`}
           alt={`Imagen ${category.name}`}
-          className="w-28 h-16"
+          className="w-28 h-12"
         />
 
         <h1 className={`${titleFont.className}`}>{category.name}</h1>
