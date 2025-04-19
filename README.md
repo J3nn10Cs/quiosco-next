@@ -2,7 +2,7 @@
 
 ## 🌐 Tecnologías Utilizadas
 - NextJs, Prisna
-- **Otras Herramientas:** JavaScript, ESLint, Tailwind
+- **Otras Herramientas:** TypeScript, ESLint, Tailwind
 
 ---
 
