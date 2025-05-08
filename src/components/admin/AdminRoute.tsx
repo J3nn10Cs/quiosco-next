@@ -15,7 +15,7 @@ export const AdminRoute = ({link} : Props) => {
   const pathname = usePathname()
   //inicia con
   const isActive = pathname.startsWith(link.url)
-  console.log(isActive)
+  
   return (
     <>
       <Link

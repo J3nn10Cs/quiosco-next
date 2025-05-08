@@ -1,10 +1,10 @@
+import { ProductWithCategory } from "@/app/admin/products/page"
 import { formatCurrency } from "@/helpers/currency"
-import { Product } from "@prisma/client"
 import { EyeIcon, PencilIcon, TrashIcon } from "lucide-react"
 import Link from "next/link"
 
 interface Props {
-  products: Product[]
+  products: ProductWithCategory
 }
 
 export default function ProductTable({ products }: Props) {
@@ -52,7 +52,7 @@ export default function ProductTable({ products }: Props) {
                       {formatCurrency(product.price)}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {product.categoryId}
+                      {product.category.name}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                       <div className="flex justify-center space-x-3 ">

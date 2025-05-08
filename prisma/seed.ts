@@ -20,7 +20,7 @@ async function main() {
   }
 }
 
-//si todo sale bien
+//si todo sale bier n
 main()
   .then(async () => {
     //si todo sale bien esperamos a que prima se desconecte

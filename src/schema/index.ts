@@ -14,3 +14,10 @@ export const OrderSchema = z.object({
     subTotal : z.number()
   }))
 })
+
+export const SearchSchema = z.object({
+  search : z.string()
+    //eliminar espacios al inicio y al final
+    .trim()
+    .min(1, { message: 'La busqueda no puede ir vacia'})
+})
