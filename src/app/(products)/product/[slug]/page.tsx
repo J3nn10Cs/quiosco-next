@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import { ProductGrid, TopMenu } from "@/components";
+import { ProductGrid } from "@/components";
 
 interface Props {
   params : {
@@ -16,6 +16,10 @@ async function getProducts(category:string) {
       }
     }
   })
+
+  if(!products){
+    notFound();
+  }
 
   return products
 }

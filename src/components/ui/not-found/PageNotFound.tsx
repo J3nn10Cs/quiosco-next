@@ -10,11 +10,11 @@ export function PageNotFound() {
           <h2 className={`${titleFont.className} antialiased text-9xl`}>404</h2>
           <p className="font-semibold text-xl">Ups! Lo sentimos mucho</p>
           <p className="font-light">
-            <span>Puedes regresar al</span>
+            <span>Puedes regresar a</span>
             <Link
-              href='/'
-              className="font-normal hover:underline transition-all"
-            > Inicio </Link>
+              href='/admin/products'
+              className="font-semibold hover:underline transition-all text-amber-500"
+            > Productos </Link>
           </p>
         </div>
 
