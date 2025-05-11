@@ -2,7 +2,6 @@ import { ProductSearch } from '@/components/product/ProductSearch';
 import ProductTable from '@/components/product/ProductTable';
 import { Heading } from '@/components/ui/heading/Heading'
 import { prisma } from '@/lib/prisma';
-import { Link } from 'lucide-react';
 import React from 'react'
 
 async function searchProducts(search : string){

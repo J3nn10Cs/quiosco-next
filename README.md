@@ -20,6 +20,18 @@ Proyecto de un sistema de pedidos tipo quiosco desarrollado con Next.js y Prisma
   DATABASE_URL= tu_url
 ```
 
+```env
+  NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME= tu_cloud_name
+```
+
+```env
+  NEXT_PUBLIC_CLOUDINARY_API_KEY= tu_api_key
+```
+
+```env
+  CLOUDINARY_API_SECRET= tu_api_secred
+```
+
 ### 2️⃣ Instalar Dependencias
 
 Ejecuta los siguientes comandos

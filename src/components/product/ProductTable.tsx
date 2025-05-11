@@ -1,6 +1,7 @@
 import { ProductWithCategory } from "@/app/admin/products/page"
-import { formatCurrency } from "@/helpers/currency"
+import { formatCurrency, getImagePath } from "@/helpers/currency"
 import { EyeIcon, PencilIcon, TrashIcon } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 interface Props {
@@ -37,10 +38,12 @@ export default function ProductTable({ products }: Props) {
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10 flex items-center justify-center">
-                        <img 
-                          src={`/products/${product.image}.jpg`} 
+                        <Image
+                          width={100}
+                          height={100}
+                          src={getImagePath(product.image)}
                           alt={`Imagen de ${product.name}`}
-                          className="w-full bg-cover rounded-full"
+                          className="w-full bg-cover rounded-full h-full mx-auto"
                         />
                         </div>
                         <div className="ml-4">

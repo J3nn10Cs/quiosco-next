@@ -59,7 +59,7 @@ export default async function ProductsPage({searchParams} : {searchParams : {pag
       <div className='flex justify-between items-center mt-5'>
         <Link
           className='bg-amber-400 p-2 rounded-xl text-white font-bold hover:bg-yellow-500 transition-all duration-300'
-          href={'/admin/products/create'}
+          href={'/admin/products/new'}
         >
           Crear Producto
         </Link>
