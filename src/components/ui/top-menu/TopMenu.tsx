@@ -1,16 +1,16 @@
 'use client'
-import { titleFont } from "@/config/fonts"
 import { useStore } from "@/store"
 import Link from "next/link"
 import { IoCartOutline, IoMoonOutline } from "react-icons/io5"
 import { Heading } from "../heading/Heading"
+import { geistMono } from "@/config/fonts"
 
 export function TopMenu() {
 
   const order = useStore(state => state.order)
 
   return (
-    <div className="animate__animated animate__fadeIn sticky top-0 z-10 flex justify-between items-center p-4 mb-4 bg-white shadow-md">
+    <div className={`animate__animated animate__fadeIn sticky top-0 z-10 flex justify-between items-center p-4 mb-4 bg-white shadow-md`}>
       <Heading>
         Elige y personaliza tu pedido
       </Heading>

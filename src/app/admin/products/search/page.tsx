@@ -29,7 +29,7 @@ export default async function SearchPage ({searchParams} : {searchParams : {sear
   return (
     <>
       <Heading>
-        Resultados de busqueda {searchParams.search}
+        Resultados de busqueda : {searchParams.search}
       </Heading>
 
       <div className='flex flex-col lg:flex-row lg:justify-end mt-5'>

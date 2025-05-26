@@ -1,5 +1,6 @@
-import { AddProductForm } from '@/components/product/AddProductForm'
+import { EditProductForm } from '@/components/product/EditProductForm'
 import FormPoduct from '@/components/product/FormPoduct'
+import { GoBackButton } from '@/components/ui/GoBackButton/GoBackButton'
 import { Heading } from '@/components/ui/heading/Heading'
 import React from 'react'
 
@@ -10,9 +11,11 @@ export default function CreateProduct () {
         Nuevo producto
       </Heading>
 
-      <AddProductForm>
+      <GoBackButton/>
+
+      <EditProductForm>
         <FormPoduct/>
-      </AddProductForm>
+      </EditProductForm>
     </>
   )
 }

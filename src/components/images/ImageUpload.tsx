@@ -1,12 +1,13 @@
 "use client";
+import { getImagePath } from '@/helpers/currency';
 import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 import { useState } from 'react';
 import { TbPhotoPlus } from 'react-icons/tb';
 
-export default function ImageUpload() {
+export default function ImageUpload({image} : {image : string | undefined}) {
 
-  const [image,setImage] = useState('')
+  const [imageUpload,setImageUpload] = useState('')
 
   return (
     <CldUploadWidget
@@ -15,7 +16,7 @@ export default function ImageUpload() {
           //cerrar el widget de cloudinary
           widget.close()
           //@ts-ignore
-          setImage(result.info?.secure_url)
+          setImageUpload(result.info?.secure_url)
         }
       }}
       uploadPreset="vsssrgkd"
@@ -33,13 +34,13 @@ export default function ImageUpload() {
             >
               <TbPhotoPlus className='w-10 h-10 ' />
               <p className='text-lg font-semibold'>Agregar Imagen</p>
-              {image && (
+              {imageUpload && (
                 <>
                   <div className='absolute inset-0 w-full h-full'>
                     <Image
                       fill
                       style={{ objectFit : 'contain' }}
-                      src={image}
+                      src={imageUpload}
                       alt='Imagen Producto'
                     />
                   </div>
@@ -47,11 +48,28 @@ export default function ImageUpload() {
               )}
             </div>
           </div>
+          
+          {/* si hay una imagen y no se esta actualizando */}
+          {image && !imageUpload && (
+            <>
+              <div className='space-y-2'>
+                <label htmlFor="">Imagen Actual</label>
+                <div className='relative w-64 h-64'>
+                  <Image
+                    fill
+                    style={{ objectFit : 'contain' }}
+                    src={getImagePath(image)}
+                    alt='Imagen Producto'
+                  />
+                </div>
+              </div>
+            </>
+          )}
 
           <input
             type='hidden'
             name='image'
-            value={image}
+            defaultValue={imageUpload ? imageUpload : image}
           />
         </>
       )}

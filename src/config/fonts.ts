@@ -8,6 +8,7 @@ export const geistSans = Geist({
 export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight : ['500','700']
 });
 
 export const titleFont = Montserrat_Alternates({

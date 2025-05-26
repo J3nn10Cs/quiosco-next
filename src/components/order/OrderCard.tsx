@@ -15,7 +15,6 @@ export default function OrderCard({ order } : Props) {
     >
       <div className="space-y-4">
         <p className='text-2xl font-extrabold text-gray-900'>Cliente: {order.name}</p>
-        <p className='text-lg font-bold text-gray-900'>Productos Ordenados:</p>
         
         <dl className="mt-6 space-y-4">
           {

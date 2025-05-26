@@ -1,6 +1,5 @@
 "use client";
-
-import { titleFont } from "@/config/fonts"
+import { geistMono } from "@/config/fonts"
 import { Category } from "@prisma/client"
 import Link from "next/link"
 import { useParams } from "next/navigation"
@@ -26,7 +25,7 @@ export function CategoryIcon({category} : Props) {
           className="w-28 h-12"
         />
 
-        <h1 className={`${titleFont.className}`}>{category.name}</h1>
+        <h1 className={`${geistMono.className}`}>{category.name}</h1>
       </div>
     </Link>
   )
